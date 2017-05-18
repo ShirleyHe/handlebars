@@ -1,0 +1,17 @@
+<section class="panel">
+    <table>
+        <thead>
+            <tr>
+                <th>大队名称</th><th>责任区域</th>
+            </tr>
+        </thead>
+        <tbody id="tableList">
+            {{#each dadius}}
+            <tr>
+                <td>{{{name}}}</td>
+                <td>{{responsiblearea}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
