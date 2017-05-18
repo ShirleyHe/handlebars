@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var exphbs = require('express-handlebars');
-var hbsHelper = require('./util/hbsHelper');
+var hbsHelper = require('./public/util/hbsHelper');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -14,7 +14,8 @@ var users = require('./routes/users');
 var app = express();
 
 app.engine('.hbs', exphbs({
-    layoutsDir: 'views',
+    // layoutsDir: 'views',
+    layoutsDir: 'test',
     defaultLayout: 'layout',
     extname: ".hbs",
     helpers: hbsHelper
@@ -22,7 +23,8 @@ app.engine('.hbs', exphbs({
 
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('test', path.join(__dirname, 'test'));
+// app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
