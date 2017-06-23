@@ -15,3 +15,5 @@
 4. 运行gulp  ==>  $ gulp
 
 # gulp的方法
+1. gulp.src()
+
