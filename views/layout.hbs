@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<html lang="en">
+<head>
+    {{>head}}
+    {{{_sections.css}}}
+</head>
+<body>
+    {{>header}}
     {{{body}}}
-  </body>
+    {{>weather}}
+    {{>footer}}
+    {{{_sections.js}}}
+</body>
 </html>

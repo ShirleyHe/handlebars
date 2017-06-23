@@ -6,16 +6,18 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var exphbs = require('express-handlebars');
-var hbsHelper = require('./public/util/hbsHelper');
+var hbsHelper = require('./web/lib/util/hbsHelper');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
+// app.set('test', path.join(__dirname, 'test'));
+app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
-    // layoutsDir: 'views',
-    layoutsDir: 'test',
+    layoutsDir: 'views',
+    // layoutsDir: 'test',
     defaultLayout: 'layout',
     extname: ".hbs",
     helpers: hbsHelper
@@ -23,8 +25,6 @@ app.engine('.hbs', exphbs({
 
 
 // view engine setup
-app.set('test', path.join(__dirname, 'test'));
-// app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
@@ -33,7 +33,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'web')));
 
 app.use('/', index);
 app.use('/users', users);
